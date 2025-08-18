@@ -1,0 +1,34 @@
+defaults:
+  - _base
+  - _self_
+
+name: ppo_steve
+
+train_entry: crafterdojo.agent.ppo_steve.train.train_entry
+eval_entry: crafterdojo.agent.ppo_steve.eval.eval_entry
+
+eval:
+  load: null
+
+steve1:
+  model: models/craftervpt/cvpt_base_lora.model
+  weights: models/craftersteve1/csteve1.weights
+  prior_weights: models/craftersteve1/csteve1_prior.pt
+  cond_scale: 1.5
+
+
+low_level_steps: 10
+skillbook: skillbook.pkl
+n_envs: 4
+
+learning_rate: 3e-4
+n_steps: 128
+batch_size: 512
+n_epochs: 10
+gamma: 0.999
+gae_lambda: 0.95
+total_timesteps: 1_000_000
+
+save_freq: 1000
+eval_freq: 500
+n_eval_episodes: 30

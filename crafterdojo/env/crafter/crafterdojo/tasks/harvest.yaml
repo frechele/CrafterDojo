@@ -1,0 +1,124 @@
+sapling:
+  task_type: harvest
+  length: 100
+  target_item: sapling
+
+wood:
+  task_type: harvest
+  length: 100
+  target_item: wood
+
+stone:
+  task_type: harvest
+  length: 1000
+  target_item: stone
+
+stone_with_pickaxe:
+  task_type: harvest
+  length: 1000
+  target_item: stone
+  initial_inventory:
+    wood_pickaxe: 1
+
+coal:
+  task_type: harvest
+  length: 1000
+  target_item: coal
+
+coal_with_pickaxe:
+  task_type: harvest
+  length: 1000
+  target_item: coal
+  initial_inventory:
+    wood_pickaxe: 1
+
+iron:
+  task_type: harvest
+  length: 1000
+  target_item: iron
+
+iron_with_pickaxe:
+  task_type: harvest
+  length: 1000
+  target_item: iron
+  initial_inventory:
+    stone_pickaxe: 1
+
+diamond:
+  task_type: harvest
+  length: 2000
+  target_item: diamond
+
+diamond_with_pickaxe:
+  task_type: harvest
+  length: 2000
+  target_item: diamond
+  initial_inventory:
+    iron_pickaxe: 1
+
+water:
+  task_type: harvest
+  length: 1000
+  target_item: drink
+  initial_inventory:
+    drink: 8
+
+wood_pickaxe:
+  task_type: harvest
+  length: 100
+  target_item: wood_pickaxe
+
+wood_pickaxe_with_wood:
+  task_type: harvest
+  length: 10
+  target_item: wood_pickaxe
+  initial_inventory:
+    wood: 3
+
+stone_pickaxe:
+  task_type: harvest
+  length: 100
+  target_item: stone_pickaxe
+
+stone_pickaxe_with_wood_and_stone:
+  task_type: harvest
+  length: 10
+  target_item: stone_pickaxe
+  initial_inventory:
+    wood: 3
+    stone: 1
+
+iron_pickaxe:
+  task_type: harvest
+  length: 1000
+  target_item: iron_pickaxe
+
+wood_sword:
+  task_type: harvest
+  length: 100
+  target_item: wood_sword
+
+wood_sword_with_wood:
+  task_type: harvest
+  length: 10
+  target_item: wood_sword
+  initial_inventory:
+    wood: 3
+
+stone_sword:
+  task_type: harvest
+  length: 100
+  target_item: stone_sword
+
+stone_sword_with_wood_and_stone:
+  task_type: harvest
+  length: 10
+  target_item: stone_sword
+  initial_inventory:
+    wood: 3
+    stone: 1
+
+iron_sword:
+  task_type: harvest
+  length: 1000
+  target_item: iron_sword

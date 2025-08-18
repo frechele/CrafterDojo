@@ -1,0 +1,11 @@
+[project]
+name = "caption"
+version = "0.1.0"
+description = "CrafterDojo Caption Generator Toolkit"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.2.5",
+    "ray>=2.46.0",
+    "tqdm>=4.67.1",
+]

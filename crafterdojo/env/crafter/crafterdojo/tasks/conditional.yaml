@@ -1,0 +1,54 @@
+stone_pickaxe_wood_sword:
+  task_type: conditional
+  first: make_stone_pickaxe
+  second: make_wood_sword
+
+place_plant_place_table:
+  task_type: conditional
+  first: place_plant
+  second: place_table
+
+stone_sword_wood:
+  task_type: conditional
+  first: make_stone_sword
+  second: collect_wood
+
+stone_sword_sapling:
+  task_type: conditional
+  first: make_stone_sword
+  second: collect_sapling
+
+wood_sword_sapling:
+  task_type: conditional
+  first: make_wood_sword
+  second: collect_sapling
+
+wood_sword_pickaxe_cow:
+  task_type: conditional_3
+  first: make_wood_sword
+  second: make_wood_pickaxe
+  third: eat_cow
+
+stone_wood_sword_cow:
+  task_type: conditional_3
+  first: collect_stone
+  second: make_wood_sword
+  third: eat_cow
+
+skeleton_zombie_cow:
+  task_type: conditional_3
+  first: defeat_skeleton
+  second: defeat_zombie
+  third: eat_cow
+
+coal_wood_pickaxe_stone:
+  task_type: conditional_3
+  first: collect_coal
+  second: make_wood_pickaxe
+  third: place_stone
+
+stone_pickaxe_wood_pickaxe_coal:
+  task_type: conditional_3
+  first: make_stone_pickaxe
+  second: make_wood_pickaxe
+  third: collect_coal

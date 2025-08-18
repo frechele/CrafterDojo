@@ -1,0 +1,62 @@
+defaults:
+  - _base
+  - _self_
+
+name: crafterclip
+
+train_entry: crafterdojo.model.crafterclip.main.train_entry
+eval_entry: crafterdojo.model.crafterclip.main.eval_entry
+
+weights: null
+
+train_dataset:
+  dataset_root: "CrafterDojo_Data"
+  caption_path: "caption/sampled"
+  data_split: "[0:18000]"
+  episode_cutoff: null
+train_dataset_limit: null
+
+val_dataset:
+  dataset_root: "CrafterDojo_Data"
+  caption_path: "caption/sampled"
+  data_split: "[18000:19000]"
+  episode_cutoff: null
+  
+test_dataset:
+  dataset_root: "CrafterDojo_Data"
+  caption_path: "caption/sampled"
+  data_split: "[19000:10000]"
+  episode_cutoff: null
+
+rephrase_dict: "rephrased_caption.yaml"
+num_rephrased: 39
+
+# hyperparameters for model
+resolution: [144, 144]
+oai_clip_weights: models/clip/ViT-B-16.weights
+
+mineclip:
+  arch: "vit_base_p16_fz.v2.t2"
+  hidden_dim: 512
+  image_feature_dim: 512
+  mlp_adapter_spec: "v0-2.t0"
+  pool_type: "attn.d2.nh8.glusw"
+  resolution: ${..resolution}
+
+# hyperparameters for training
+batch_size: 64
+num_workers: 4
+
+n_epochs: 2
+warmup_steps: 100
+learning_rate: 1.5e-4
+min_learning_rate: 1e-5
+weight_decay: 0.2
+layerwise_lr_decay: 0.65
+pretrained_layers_lr_multiplier: 0.5
+
+# logging
+log_freq: 100
+save_freq: 1000
+snapshot_every_n_frames: 10_000_000
+val_freq: 3500

@@ -1,0 +1,20 @@
+defaults:
+  - _self_
+  - agent: ???
+  - env: default
+  - fabric: gpu
+  - wandb: default
+
+seed: 42
+mode: ???  # choices=['train', 'eval']
+
+eval:
+  n_episodes: 100
+  n_workers: 10
+  debug: false
+
+hydra:
+  run:
+    dir: ./outputs/${env.name}/${agent.name}/${mode}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    chdir: false

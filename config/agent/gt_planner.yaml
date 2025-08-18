@@ -1,0 +1,14 @@
+defaults:
+  - _base
+  - _self_
+
+name: gt_planner
+
+train_entry: null
+eval_entry: crafterdojo.agent.ppo_steve.gt_planner.eval_entry
+
+steve1:
+  model: models/craftervpt/cvpt_base_lora.model
+  weights: models/craftersteve1/csteve1.weights
+  prior_weights: models/craftersteve1/csteve1_prior.pt
+  cond_scale: 1.5

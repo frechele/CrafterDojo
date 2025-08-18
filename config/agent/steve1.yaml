@@ -1,0 +1,51 @@
+defaults:
+  - _base
+  - _self_
+
+name: steve1
+
+train_entry: crafterdojo.agent.steve1.train.train_entry
+eval_entry: crafterdojo.agent.steve1.eval.programmatic_eval_text
+
+model: models/craftervpt/cvpt_base_lora.model
+weights: models/craftervpt/cvpt_base.weights
+
+eval:
+  clip_weights: models/crafterclip/cclip.weights
+  prior_weights: models/craftersteve1/csteve1_prior.pt
+  cond_scale: 1.5
+  instruction: null
+
+train_dataset:
+  dataset_root: "CrafterDojo_Data/filtered_20"
+  data_split: "[0:18000]"
+  episode_cutoff: null
+
+val_dataset:
+  dataset_root: "CrafterDojo_Data/filtered_20"
+  data_split: "[18000:19000]"
+  episode_cutoff: null
+
+T: 640
+batch_size: 16
+num_workers: 4
+
+trunc_t: 64
+learning_rate: 1e-5
+min_learning_rate: 1e-6
+n_samples: 200_000_000
+n_epochs: 0
+warmup_samples: 10_000_000
+weight_decay: 1e-4
+max_grad_norm: 5
+
+min_btwn_goals: 1
+max_btwn_goals: 10
+p_uncond: 0.1
+event_based_goals: true
+
+# logging
+log_freq: 100
+save_freq: 1000
+snapshot_every_n_samples: 10_000_000
+val_freq: 3500

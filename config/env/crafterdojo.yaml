@@ -1,0 +1,7 @@
+defaults:
+  - default
+  - _self_
+
+task: null
+name: crafterdojo_${.task}
+entry: crafterdojo.env.crafter.crafterdojo_main

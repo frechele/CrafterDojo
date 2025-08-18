@@ -1,0 +1,14 @@
+defaults:
+  - _self_
+  - model: ???
+  - fabric: gpu
+  - wandb: default
+
+seed: 42
+mode: ???  # choices=['train', 'eval']
+
+hydra:
+  run:
+    dir: ./outputs/${model.name}/${mode}/${now:%Y-%m-%d_%H-%M-%S}
+  job:
+    chdir: false

@@ -1,0 +1,42 @@
+[project]
+name = "crafterdojo"
+version = "0.1.0"
+description = "A Suite of Foundation Models for Building Open-Ended Agents in Crafter"
+readme = "README.md"
+requires-python = "==3.12.10"
+dependencies = [
+    "dm-tree==0.1.8",
+    "einops==0.8.1",
+    "evaluate==0.4.3",
+    "fireducks==1.2.8",
+    "gdown>=5.2.0",
+    "gym3==0.3.3",
+    "hydra-core==1.3.2",
+    "imageio==2.37.0",
+    "kornia==0.8.1",
+    "lightning==2.5.1.post0",
+    "nltk==3.9.1",
+    "numpy==1.26.4",
+    "nvitop==1.5.0",
+    "omegaconf==2.3.0",
+    "openai>=1.95.1",
+    "opencv-python==4.11.0.86",
+    "opensimplex==0.4.5.1",
+    "peft==0.15.2",
+    "ray==2.46.0",
+    "rich==14.0.0",
+    "rouge-score==0.1.2",
+    "ruff==0.11.9",
+    "sb3-contrib==2.6.0",
+    "scikit-learn==1.6.1",
+    "scipy==1.15.3",
+    "stable-baselines3==2.6.0",
+    "streamlit==1.45.1",
+    "tabulate==0.9.0",
+    "tensorboard==2.19.0",
+    "torch>=2.8.0",
+    "transformers==4.51.3",
+    "umap-learn>=0.5.9.post2",
+    "wandb==0.19.11",
+    "x-transformers==0.27.1",
+]

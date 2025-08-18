@@ -1,0 +1,90 @@
+collect_coal:
+  task_type: achievement
+  achievement: collect_coal
+
+collect_diamond:
+  task_type: achievement
+  achievement: collect_diamond
+
+collect_drink:
+  task_type: achievement
+  achievement: collect_drink
+
+collect_iron:
+  task_type: achievement
+  achievement: collect_iron
+
+collect_sapling:
+  task_type: achievement
+  achievement: collect_sapling
+
+collect_stone:
+  task_type: achievement
+  achievement: collect_stone
+
+collect_wood:
+  task_type: achievement
+  achievement: collect_wood
+
+defeat_skeleton:
+  task_type: achievement
+  achievement: defeat_skeleton
+
+defeat_zombie:
+  task_type: achievement
+  achievement: defeat_zombie
+
+eat_cow:
+  task_type: achievement
+  achievement: eat_cow
+
+eat_plant:
+  task_type: achievement
+  achievement: eat_plant
+  peaceful: true
+  easy_survive: true
+  no_cow: true
+
+make_iron_pickaxe:
+  task_type: achievement
+  achievement: make_iron_pickaxe
+
+make_iron_sword:
+  task_type: achievement
+  achievement: make_iron_sword
+
+make_stone_pickaxe:
+  task_type: achievement
+  achievement: make_stone_pickaxe
+
+make_stone_sword:
+  task_type: achievement
+  achievement: make_stone_sword
+
+make_wood_pickaxe:
+  task_type: achievement
+  achievement: make_wood_pickaxe
+
+make_wood_sword:
+  task_type: achievement
+  achievement: make_wood_sword
+
+place_furnace:
+  task_type: achievement
+  achievement: place_furnace
+
+place_plant:
+  task_type: achievement
+  achievement: place_plant
+
+place_stone:
+  task_type: achievement
+  achievement: place_stone
+
+place_table:
+  task_type: achievement
+  achievement: place_table
+
+wake_up:
+  task_type: achievement
+  achievement: wake_up

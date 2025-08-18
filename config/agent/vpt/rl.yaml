@@ -1,0 +1,31 @@
+
+defaults:
+  - _base
+  - _self_
+
+name: vpt_rl
+
+train_entry: crafterdojo.agent.vpt.rl_train.main
+eval_entry: crafterdojo.agent.vpt.eval.main
+
+# hyperparameters for training
+n_envs: 4
+live_bonus: 0
+death_penalty: 0
+kl_coef: 0.1
+kl_decay: 1.0
+
+model: models/craftervpt/cvpt_base_lora.model
+weights: models/craftervpt/cvpt_base.weights
+
+learning_rate: 1e-5
+n_steps: 512
+batch_size: 512
+n_epochs: 10
+gamma: 0.999
+gae_lambda: 0.95
+total_timesteps: 1_000_000
+
+save_freq: 1000
+eval_freq: 5000
+n_eval_episodes: 30
