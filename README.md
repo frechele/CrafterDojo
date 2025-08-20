@@ -2,6 +2,8 @@
 
 Author: Junyeong Park, Hyeonseo Cho, Sungjin Ahn
 
+[[paper]](https://arxiv.org/abs/2508.13530)
+
 ## Abstract
 
 Developing general-purpose embodied agents is a core challenge in AI. Minecraft provides rich complexity and internet-scale data, but its slow speed and engineering overhead make it unsuitable for rapid prototyping. Crafter offers a lightweight alternative that retains key challenges from Minecraft, yet its use has remained limited to narrow tasks due to the absence of foundation models that have driven progress in the Minecraft setting. In this paper, we present CrafterDojo, a suite of foundation models and tools that unlock the Crafter environment as a lightweight, prototyping-friendly, and Minecraft-like testbed for general-purpose embodied agent research. CrafterDojo addresses this by introducing CrafterVPT, CrafterCLIP, and CrafterSteve-1 for behavior priors, vision-language grounding, and instruction following, respectively. In addition, we provide toolkits for generating behavior and caption datasets (CrafterPlay and CrafterCaption), reference agent implementations, benchmark evaluations, and a complete open-source codebase.
