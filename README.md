@@ -26,7 +26,7 @@ Developing general-purpose embodied agents is a core challenge in AI. Minecraft 
 
 **Step 1. Clone the repository**
 ```bash
-git clone <repository-url>
+git clone https://github.com/frechele/CrafterDojo
 cd CrafterDojo
 ```
 
