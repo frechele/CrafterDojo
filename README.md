@@ -2,7 +2,7 @@
 
 Author: Junyeong Park, Hyeonseo Cho, Sungjin Ahn
 
-[[paper]](https://arxiv.org/abs/2508.13530)
+[[paper]](https://arxiv.org/abs/2508.13530) [[project]](https://sites.google.com/view/crafterdojo)
 
 ## Abstract
 
