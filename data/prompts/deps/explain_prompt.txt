@@ -1,0 +1,2 @@
+Failed to execute a plan: {PLAN_STR}. I have items in inventory: {INVENTORY_DESC}.{NEARBY_DESC}
+You need to explain the reason of failure, rather than make a new plan directly.

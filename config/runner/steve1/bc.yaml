@@ -1,0 +1,64 @@
+defaults:
+  - _base
+  - _self_
+
+name: steve1_bc
+train_entry: crafterdojo.runner.steve1.bc.main
+eval_entry: crafterdojo.runner.steve1.eval.programmatic_eval_text
+build_entry: crafterdojo.runner.steve1.eval.programmatic_eval_text_build
+
+model: models/vpt/base_lora.yaml
+weights: null
+goal_embed_dim: 512
+
+eval:
+  weights: models/steve1/steve1.safetensors
+  clip_weights: models/crafterclip/crafterclip.safetensors
+  prior_weights: models/steve1/steve1_prior.safetensors
+  cond_scale: 0.4  # best CS for the released CrafterSteve-1
+  instruction: "collect a sapling"
+  instruction_variants_path: null
+  num_caption_variants: null
+
+train_dataset:
+  dataset_root: crafterdojo_data/Craftax-Classic-Symbolic-v1_filtered_20
+  data_split: "[0:18000]"
+  episode_cutoff: null
+
+val_dataset:
+  dataset_root: crafterdojo_data/Craftax-Classic-Symbolic-v1_filtered_20
+  data_split: "[18000:19000]"
+  episode_cutoff: null
+
+num_workers: 4
+rephrased: 39
+embed_type: clip
+cond_position: output  # "output" (post-final_ln residual) | "input" (upstream Steve-1: pre-recurrent)
+
+min_btwn_goals: 1
+max_btwn_goals: 10
+p_uncond: 0.1
+event_based_goals: true
+
+T: 256
+include_partial_chunks: true
+batch_size: 16
+trunc_t: 64
+learning_rate: 1e-5
+min_learning_rate: 1e-6
+pi_head_lr_mult: 1.0
+goal_affine_lr_mult: 1.0
+lora_lr_mult: 1.0
+
+surprise_weight: false
+surprise_weight_clip: 2.83
+n_samples: 200_000_000
+n_epochs: 0
+warmup_samples: 10_000_000
+weight_decay: 1e-4
+max_grad_norm: 5.0
+
+log_freq: 100
+val_freq: 5000
+save_freq: 10000
+snapshot_every_n_samples: 10_000_000

@@ -1,0 +1,14 @@
+defaults:
+  - /runner/deps/_base@_here_
+  - _self_
+
+name: deps_llm
+planner_backend: llm
+
+planner:
+  model_name: openai/gpt-oss-120b
+  temperature: 0.0
+  embed_crafter: false
+  base_url: http://localhost:8000/v1
+  api_key: EMPTY
+  timeout: 120

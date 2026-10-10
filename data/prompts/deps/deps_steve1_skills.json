@@ -1,0 +1,86 @@
+{
+    "wood": {
+        "prompt": "obtain wood",
+        "timeout": 100
+    },
+    "stone": {
+        "prompt": "obtain stone",
+        "timeout": 100
+    },
+    "coal": {
+        "prompt": "obtain coal",
+        "timeout": 1000
+    },
+    "iron": {
+        "prompt": "obtain iron",
+        "timeout": 1000
+    },
+    "diamond": {
+        "prompt": "obtain diamond",
+        "timeout": 1000
+    },
+    "sapling": {
+        "prompt": "obtain sapling",
+        "timeout": 100
+    },
+
+    "place_table": {
+        "prompt": "place table",
+        "timeout": 100
+    },
+    "place_furnace": {
+        "prompt": "place furnace",
+        "timeout": 100
+    },
+    "place_sapling": {
+        "prompt": "place sapling",
+        "timeout": 100
+    },
+
+    "drink": {
+        "prompt": "obtain water",
+        "timeout": 1000
+    },
+    "zombie": {
+        "prompt": "kill zombie",
+        "timeout": 100
+    },
+    "skeleton": {
+        "prompt": "kill skeleton",
+        "timeout": 100
+    },
+    "cow": {
+        "prompt": "kill cow",
+        "timeout": 100
+    },
+
+    "wood_pickaxe": {
+        "prompt": "craft wood pickaxe",
+        "timeout": 10
+    },
+    "wood_sword": {
+        "prompt": "craft wood sword",
+        "timeout": 10
+    },
+    "stone_pickaxe": {
+        "prompt": "craft stone pickaxe",
+        "timeout": 10
+    },
+    "stone_sword": {
+        "prompt": "craft stone sword",
+        "timeout": 10
+    },
+    "iron_pickaxe": {
+        "prompt": "craft iron pickaxe",
+        "timeout": 10
+    },
+    "iron_sword": {
+        "prompt": "craft iron sword",
+        "timeout": 10
+    },
+
+    "sleep": {
+        "prompt": "go sleep",
+        "timeout": 100
+    }
+}

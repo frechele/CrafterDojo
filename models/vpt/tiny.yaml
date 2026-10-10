@@ -1,0 +1,36 @@
+model:
+  args:
+    net:
+      args:
+        active_reward_monitors:
+          env_reward: 1
+        attention_heads: 4
+        attention_mask_style: clipped_causal
+        attention_memory_size: 128
+        diff_mlp_embedding: false
+        hidsize: 128
+        img_shape:
+        - 144
+        - 144
+        - 3
+        impala_chans:
+        - 16
+        - 32
+        - 32
+        impala_kwargs:
+          post_pool_groups: 1
+        impala_width: 1
+        init_norm_kwargs:
+          batch_norm: false
+          group_norm_groups: 1
+        n_recurrence_layers: 2
+        only_img_input: true
+        pointwise_ratio: 4
+        pointwise_use_activation: false
+        recurrence_is_residual: true
+        recurrence_type: transformer
+        timesteps: 64
+        use_pointwise_layer: true
+        use_pre_lstm_ln: false
+    pi_head_opts:
+      temperature: 1.0

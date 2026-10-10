@@ -1,0 +1,7 @@
+1k:
+  task_type: survival
+  length: 1_000
+
+10k:
+  task_type: survival
+  length: 10_000

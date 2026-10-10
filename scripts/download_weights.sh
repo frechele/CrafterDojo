@@ -1,27 +1,34 @@
-#! /bin/bash
+#!/usr/bin/env bash
+# Download the released CrafterDojo v1 weights from the Hugging Face Hub into models/.
+#
+#   bash scripts/download_weights.sh            # all released models
+#   bash scripts/download_weights.sh vpt        # only CrafterVPT (tiny/base/large)
+#   bash scripts/download_weights.sh clip       # only CrafterCLIP
+#   bash scripts/download_weights.sh steve1     # CrafterSteve-1 + its prior
+#   bash scripts/download_weights.sh openai     # OpenAI CLIP ViT-B/16 (only needed to train CrafterCLIP)
 
-# To train CrafterCLIP, uncomment the following line:
-# mkdir -p models/clip
-# wget -O models/clip/ViT-B-16.pt https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt
-# python crafterdojo/model/crafterclip/convert_clip.py
+set -euo pipefail
 
-# Pre-trained CrafterCLIP model
-mkdir -p models/crafterclip
-gdown -O models/crafterclip/cclip.weights https://drive.google.com/uc?id=1NQHg_4Udc34mib3-cQaPhzrIr8w-Oc1W
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+cd "${SCRIPT_DIR}/.."
 
+HF_REPO="${HF_REPO:-frechele/CrafterDojo}"
+HF_REVISION="${HF_REVISION:-v1.0}"
+OPENAI_CLIP_URL="https://openaipublic.azureedge.net/clip/models/5806e77cd80f8b59890b7e101eabd078d9fb84e6937f9e85e4ecb61988df416f/ViT-B-16.pt"
 
-# Pre-trained CrafterVPT models
-mkdir -p models/craftervpt
-gdown -O models/craftervpt/cvpt_tiny.weights https://drive.google.com/uc?id=1ZLGj0GZc-cmCv5hifCN1FvYNzYj6p0ZY
-gdown -O models/craftervpt/cvpt_tiny.model https://drive.google.com/uc?id=1EuU2UAlX2DOFYm9VwWSng1z9QUaJ37HK
-gdown -O models/craftervpt/cvpt_base.weights https://drive.google.com/uc?id=1qmqFLJxThc7v9HTT5oL8hsxNwJ0UFmMz
-gdown -O models/craftervpt/cvpt_base.model https://drive.google.com/uc?id=1pRUYvS0EztfztHYNzXzOIuDDxJAjCmFb
-gdown -O models/craftervpt/cvpt_base_lora.model https://drive.google.com/uc?id=15SGwVv4i_rUIHUFPlKL-3WaFONWCjqAH
-gdown -O models/craftervpt/cvpt_large.weights https://drive.google.com/uc?id=1QZkP_YrMQdUKnaCrH3ysP_WX1hOTFIem
-gdown -O models/craftervpt/cvpt_large.model https://drive.google.com/uc?id=1scPpA9dKL9RmjMBA5vZ6z2Cs5XMeF9qm
+hf_download() {
+    uv run hf download "${HF_REPO}" --revision "${HF_REVISION}" --local-dir models "$@"
+}
 
-
-# Pre-trained CrafterSteve-1 model
-mkdir -p models/craftersteve1
-gdown -O models/craftersteve1/csteve1.weights https://drive.google.com/uc?id=1rtYRw4prJLZUiDLALkUwqeyasIqdf401
-gdown -O models/craftersteve1/csteve1_prior.pt https://drive.google.com/uc?id=1tiWV_Xm4-0CEYbF5zhSfoIcZSEujlQG2
+target="${1:-all}"
+case "${target}" in
+    all)    hf_download --include "*.safetensors" ;;
+    vpt)    hf_download --include "vpt/*.safetensors" ;;
+    clip)   hf_download --include "crafterclip/*.safetensors" ;;
+    steve1) hf_download --include "steve1/*.safetensors" ;;
+    openai)
+        mkdir -p models/clip
+        curl -L --fail -o models/clip/ViT-B-16.pt "${OPENAI_CLIP_URL}"
+        ;;
+    *) echo "unknown target: ${target} (all|vpt|clip|steve1|openai)" >&2; exit 1 ;;
+esac

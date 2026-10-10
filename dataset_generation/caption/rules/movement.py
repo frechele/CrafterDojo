@@ -1,0 +1,39 @@
+from dataset_generation.caption import predicate as P
+from dataset_generation.caption.common import WINDOW_SIZE
+from dataset_generation.caption.engine import Rule
+
+Stay = Rule(
+    name="Stay",
+    checker=P.Repeat(
+        P.And(
+            P.Not(P.Sleeping()),
+            P.NoOp(),
+        ),
+        WINDOW_SIZE,
+    ),
+    templates=["stay", "stay still"],
+)
+
+Move = Rule(
+    name="Move Towards",
+    checker=P.Repeat(P.Move("dir"), WINDOW_SIZE),
+    templates=["move to {dir}"],
+)
+
+Approach = Rule(
+    name="Approach",
+    checker=P.Approach("mob", WINDOW_SIZE),
+    templates=["approach {mob}", "go to {mob}"],
+)
+
+Flee = Rule(
+    name="Flee",
+    checker=P.Flee("mob", WINDOW_SIZE),
+    templates=["flee from {mob}", "escape from {mob}"],
+)
+
+Explore = Rule(
+    name="Explore",
+    checker=P.Sequence(*[P.Move(f"dir_{i}") for i in range(WINDOW_SIZE)]),
+    templates=["go explore", "explore"],
+)

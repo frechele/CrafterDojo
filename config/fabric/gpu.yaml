@@ -1,3 +1,0 @@
-accelerator: "cuda"
-devices: 1
-num_nodes: 1

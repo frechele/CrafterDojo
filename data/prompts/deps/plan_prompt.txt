@@ -1,0 +1,12 @@
+I have items in inventory: {INVENTORY_DESC}.{NEARBY_DESC} How to obtain {TARGET_ITEM}?
+Plan as executable code:
+```python
+def obtain_{TARGET_ITEM}(inventory = {{}}):
+    <1st action>
+    <2nd action>
+    <3rd action>
+    ...
+    return '{TARGET_ITEM}'
+```
+
+Remember: each mine/craft action must produce exactly one output_item (count = 1). Repeat actions if you need multiple of the same item.

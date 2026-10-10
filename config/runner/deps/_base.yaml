@@ -1,0 +1,40 @@
+name: deps_base
+
+train_entry: null
+eval_entry: crafterdojo.agent.deps.eval.eval_entry
+build_entry: crafterdojo.agent.deps.eval.eval_build
+model: null
+weights: null
+
+# Default planner backend; overridden per-variant.
+planner_backend: knowledge_graph
+target_item: null
+
+# Hard cap on env steps per episode. The env wrapper already enforces
+# task["length"] internally; this is a safety belt for runaway loops.
+max_steps: null
+
+# Survival manager (drink/food/energy detection). Off by default for
+# the harvest_iron_* / harvest_diamond suite (peaceful is set on env side).
+survival:
+  enable: false
+  threshold: 3
+  safe_level: 4
+  settle_steps: 2
+  health_threshold: 4
+  health_safe_level: 6
+  threat_radius: 4
+  flee_steps: 8
+
+# Steve-1 (CrafterCLIP) controller defaults. Point at the released weights
+# (see scripts/download_weights.sh); override to evaluate your own checkpoints.
+steve1:
+  type: mineclip
+  model: models/vpt/base_lora.yaml
+  weights: models/steve1/steve1.safetensors
+  clip_weights: models/crafterclip/crafterclip.safetensors
+  prior_weights: models/steve1/steve1_prior.safetensors
+  cond_scale: 0.4
+
+# LLM planner config (only consumed when planner_backend == "llm").
+planner: {}

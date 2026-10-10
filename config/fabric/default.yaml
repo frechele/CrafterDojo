@@ -1,0 +1,5 @@
+accelerator: auto
+devices: 1
+precision: null
+find_unused_parameters: false
+matmul_precision: high

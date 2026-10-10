@@ -1,0 +1,3 @@
+name: craftax_classic_dojo
+entry: crafterdojo.env.craftax.craftax_classic_dojo_main
+task: null

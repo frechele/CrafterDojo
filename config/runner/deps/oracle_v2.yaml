@@ -1,0 +1,6 @@
+defaults:
+  - /runner/deps/_base@_here_
+  - _self_
+
+name: hdep_oracle_v2
+planner_backend: hdepv2

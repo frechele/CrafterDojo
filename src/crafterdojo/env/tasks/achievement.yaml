@@ -1,0 +1,143 @@
+collect_coal:
+  task_type: achievement
+  achievement: collect_coal
+
+collect_diamond:
+  task_type: achievement
+  achievement: collect_diamond
+
+collect_drink:
+  task_type: achievement
+  achievement: collect_drink
+
+collect_iron:
+  task_type: achievement
+  achievement: collect_iron
+
+collect_sapling:
+  task_type: achievement
+  achievement: collect_sapling
+
+collect_stone:
+  task_type: achievement
+  achievement: collect_stone
+
+collect_wood:
+  task_type: achievement
+  achievement: collect_wood
+
+defeat_skeleton:
+  task_type: achievement
+  achievement: defeat_skeleton
+
+defeat_zombie:
+  task_type: achievement
+  achievement: defeat_zombie
+
+eat_cow:
+  task_type: achievement
+  achievement: eat_cow
+
+eat_plant:
+  task_type: achievement
+  achievement: eat_plant
+  peaceful: true
+  easy_survive: true
+  no_cow: true
+
+make_iron_pickaxe:
+  task_type: achievement
+  achievement: make_iron_pickaxe
+
+make_iron_sword:
+  task_type: achievement
+  achievement: make_iron_sword
+
+make_stone_pickaxe:
+  task_type: achievement
+  achievement: make_stone_pickaxe
+
+make_stone_sword:
+  task_type: achievement
+  achievement: make_stone_sword
+
+make_wood_pickaxe:
+  task_type: achievement
+  achievement: make_wood_pickaxe
+
+make_wood_sword:
+  task_type: achievement
+  achievement: make_wood_sword
+
+place_furnace:
+  task_type: achievement
+  achievement: place_furnace
+
+place_furnace_with_stone:
+  task_type: achievement
+  achievement: place_furnace
+  length: 10
+  initial_inventory:
+    stone: 1
+
+place_plant:
+  task_type: achievement
+  achievement: place_plant
+
+place_stone:
+  task_type: achievement
+  achievement: place_stone
+
+place_table:
+  task_type: achievement
+  achievement: place_table
+
+place_table_with_wood:
+  task_type: achievement
+  achievement: place_table
+  length: 10
+  initial_inventory:
+    wood: 2
+
+defeat_zombie_close:
+  task_type: achievement
+  achievement: defeat_zombie
+  length: 30
+  initial_inventory:
+    wood_sword: 1
+  spawn_mobs:
+    zombie:
+      count: 1
+      dist: [2, 3]
+  no_extra_hostile_spawn: true
+
+defeat_zombie_swarm:
+  task_type: achievement
+  achievement: defeat_zombie
+  length: 80
+  initial_inventory:
+    wood_sword: 1
+  spawn_mobs:
+    zombie:
+      count: 3
+      dist: [2, 4]
+  no_extra_hostile_spawn: true
+
+defeat_zombie_with_skeleton:
+  task_type: achievement
+  achievement: defeat_zombie
+  length: 80
+  initial_inventory:
+    wood_sword: 1
+  spawn_mobs:
+    zombie:
+      count: 2
+      dist: [2, 3]
+    skeleton:
+      count: 1
+      dist: [3, 4]
+  no_extra_hostile_spawn: true
+
+wake_up:
+  task_type: achievement
+  achievement: wake_up

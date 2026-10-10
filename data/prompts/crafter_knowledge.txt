@@ -1,0 +1,62 @@
+# About Crafter
+Crafter is a 2D open-world survival environment. Your goal is to maximize your survival time while manage your vital signs, gather resources, craft tools, and defend yourself against hostile creatures.
+
+1. Vital Signs & Status
+- Health: You start with 9/9 Health. You lose health when attacked by enemies or if your Food/Drink levels drop to zero. Health regenerates over time if your Food and Drink levels are high.
+- Food: You start with 9/9 Food. It decreases over time. Replenish it by hunting cows or eating plants.
+- Drink: You start with 9/9 Drink. It decreases over time. Replenish it by drinking from water tiles.
+- Energy: Used for performing actions. Replenish it by sleeping.
+- Inventory: You have an inventory to store gathered resources (Wood, Stone, Coal, Iron, Diamond, Saplings) and crafted items (Tools, Stations) up to 9 items each.
+
+2. Basic Mechanics
+- Grid World: The world is a 2D grid containing materials like Grass, Water, Stone, Sand, Path, Lava, and Trees.
+- Movement: You can move Up, Down, Left, or Right (move_up, move_down, move_left, move_right).
+- Interaction: Use the do action to interact with the object or material directly in front of you. This includes attacking, gathering, eating, or drinking.
+- Sleeping: Use the sleep action to rest. This restores Energy and safely skips through the dangerous night, provided you are not in immediate danger.
+
+3. Resource Gathering & Tool Hierarchy You need specific tools to harvest harder materials.
+- Wood: Harvest Trees (Requires: None). Yields 1 Wood.
+- Saplings: Harvest Grass (Requires: None). Low probability (10%) to yield 1 Sapling.
+- Water: Interact with Water (Requires: None). Replenishes Drink level.
+- Stone: Harvest Stone (Requires: Wood Pickaxe). Yields 1 Stone.
+- Coal: Harvest Coal (Requires: Wood Pickaxe). Yields 1 Coal.
+- Iron: Harvest Iron (Requires: Stone Pickaxe). Yields 1 Iron.
+- Diamond: Harvest Diamond (Requires: Iron Pickaxe). Yields 1 Diamond.
+
+4. Crafting & Stations Most advanced items require a crafting station to be placed nearby.
+- Crafting Table:
+    - Recipe: 2 Wood.
+    - Usage: Required to craft Wood/Stone Pickaxes and Swords.
+    - !IMPORTANT! Crafting Table cannot be stored in the inventory, as it is NOT an item.
+- Furnace:
+    - Recipe: 1 Stone.
+    - Usage: Required (alongside a Table) to craft Iron Pickaxes and Swords.
+    - !IMPORTANT! Furnace cannot be stored in the inventory, as it is NOT an item.
+    - Tip: When furnace is required, placing both table and furnace is strongly recommended.
+- Unlike Minecraft, table and furnace cannot be broken, you may need to frequently make them.
+
+5. Tool & Weapon Recipes
+- Wood Pickaxe: 1 Wood (Requires: Table).
+- Stone Pickaxe: 1 Wood + 1 Stone (Requires: Table).
+- Iron Pickaxe: 1 Wood + 1 Coal + 1 Iron (Requires: Table + Furnace).
+- Wood Sword: 1 Wood (Requires: Table).
+- Stone Sword: 1 Wood + 1 Stone (Requires: Table).
+- Iron Sword: 1 Wood + 1 Coal + 1 Iron (Requires: Table + Furnace).
+
+6. Combat & Enemies
+- Zombies: Spawn on Grass, primarily at night. They chase and attack you.
+- Skeletons: Spawn on Paths. They shoot arrows from a distance.
+- Defense: You can attack enemies using the do action. Swords significantly increase your damage output compared to bare hands or pickaxes.
+- Strategy: Nighttime is dangerous due to increased spawn rates. Building shelter or sleeping is recommended.
+
+7. Farming & Building
+- Place Plant: 1 Sapling. Grows into a mature plant over time and, after 300 steps, it can be eaten.
+- Place Stone: 1 Stone. Creates a wall to block enemies.
+- Cows: Passive mobs. Can be hunted for Food.
+
+8. Achievements (Goals) Unlock these by performing the specific actions:
+- Gathering: Collect Wood, Stone, Coal, Iron, Diamond, Drink, Sapling.
+- Crafting: Make Wood/Stone/Iron Pickaxe, Make Wood/Stone/Iron Sword, Place Table, Place Furnace.
+- Farming/Building: Place Plant, Place Stone, Eat Plant, Wake Up.
+- Combat: Defeat Zombie, Defeat Skeleton.
+- Survival: Eat Cow.

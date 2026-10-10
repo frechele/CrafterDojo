@@ -1,0 +1,437 @@
+sapling:
+  task_type: harvest
+  length: 100
+  target_item: sapling
+
+sapling_peaceful:
+  task_type: harvest
+  length: 100
+  target_item: sapling
+  peaceful: true
+
+sapling_novice:
+  task_type: harvest
+  length: 100
+  target_item: sapling
+  peaceful: true
+  easy_survive: true
+
+wood:
+  task_type: harvest
+  length: 100
+  target_item: wood
+
+wood_peaceful:
+  task_type: harvest
+  length: 100
+  target_item: wood
+  peaceful: true
+
+wood_novice:
+  task_type: harvest
+  length: 100
+  target_item: wood
+  peaceful: true
+  easy_survive: true
+
+stone:
+  task_type: harvest
+  length: 200
+  target_item: stone
+
+stone_peaceful:
+  task_type: harvest
+  length: 200
+  target_item: stone
+  peaceful: true
+
+stone_novice:
+  task_type: harvest
+  length: 200
+  target_item: stone
+  peaceful: true
+  easy_survive: true
+
+stone_with_pickaxe:
+  task_type: harvest
+  length: 200
+  target_item: stone
+  initial_inventory:
+    wood_pickaxe: 1
+
+stone_with_pickaxe_peaceful:
+  task_type: harvest
+  length: 200
+  target_item: stone
+  initial_inventory:
+    wood_pickaxe: 1
+  peaceful: true
+
+stone_with_pickaxe_novice:
+  task_type: harvest
+  length: 200
+  target_item: stone
+  initial_inventory:
+    wood_pickaxe: 1
+  peaceful: true
+  easy_survive: true
+
+coal:
+  task_type: harvest
+  length: 200
+  target_item: coal
+
+coal_peaceful:
+  task_type: harvest
+  length: 200
+  target_item: coal
+  peaceful: true
+
+coal_novice:
+  task_type: harvest
+  length: 200
+  target_item: coal
+  peaceful: true
+  easy_survive: true
+
+coal_with_pickaxe:
+  task_type: harvest
+  length: 200
+  target_item: coal
+  initial_inventory:
+    wood_pickaxe: 1
+
+coal_with_pickaxe_peaceful:
+  task_type: harvest
+  length: 200
+  target_item: coal
+  initial_inventory:
+    wood_pickaxe: 1
+  peaceful: true
+
+coal_with_pickaxe_novice:
+  task_type: harvest
+  length: 200
+  target_item: coal
+  initial_inventory:
+    wood_pickaxe: 1
+  peaceful: true
+  easy_survive: true
+
+iron:
+  task_type: harvest
+  length: 300
+  target_item: iron
+
+iron_peaceful:
+  task_type: harvest
+  length: 300
+  target_item: iron
+  peaceful: true
+
+iron_novice:
+  task_type: harvest
+  length: 300
+  target_item: iron
+  peaceful: true
+  easy_survive: true
+
+iron_with_pickaxe:
+  task_type: harvest
+  length: 300
+  target_item: iron
+  initial_inventory:
+    stone_pickaxe: 1
+
+iron_with_pickaxe_peaceful:
+  task_type: harvest
+  length: 300
+  target_item: iron
+  initial_inventory:
+    stone_pickaxe: 1
+  peaceful: true
+
+iron_with_pickaxe_novice:
+  task_type: harvest
+  length: 300
+  target_item: iron
+  initial_inventory:
+    stone_pickaxe: 1
+  peaceful: true
+  easy_survive: true
+
+diamond:
+  task_type: harvest
+  length: 500
+  target_item: diamond
+
+diamond_peaceful:
+  task_type: harvest
+  length: 400
+  target_item: diamond
+  peaceful: true
+
+diamond_novice:
+  task_type: harvest
+  length: 400
+  target_item: diamond
+  peaceful: true
+  easy_survive: true
+
+diamond_with_pickaxe:
+  task_type: harvest
+  length: 400
+  target_item: diamond
+  initial_inventory:
+    iron_pickaxe: 1
+
+diamond_with_pickaxe_peaceful:
+  task_type: harvest
+  length: 400
+  target_item: diamond
+  initial_inventory:
+    iron_pickaxe: 1
+  peaceful: true
+
+diamond_with_pickaxe_novice:
+  task_type: harvest
+  length: 400
+  target_item: diamond
+  initial_inventory:
+    iron_pickaxe: 1
+  peaceful: true
+  easy_survive: true
+
+water:
+  task_type: harvest
+  length: 1000
+  target_item: drink
+  initial_inventory:
+    drink: 8
+
+water_peaceful:
+  task_type: harvest
+  length: 1000
+  target_item: drink
+  initial_inventory:
+    drink: 8
+  peaceful: true
+
+water_novice:
+  task_type: harvest
+  length: 1000
+  target_item: drink
+  initial_inventory:
+    drink: 8
+  peaceful: true
+  easy_survive: true
+
+wood_pickaxe:
+  task_type: harvest
+  length: 100
+  target_item: wood_pickaxe
+
+wood_pickaxe_peaceful:
+  task_type: harvest
+  length: 100
+  target_item: wood_pickaxe
+  peaceful: true
+
+wood_pickaxe_novice:
+  task_type: harvest
+  length: 100
+  target_item: wood_pickaxe
+  peaceful: true
+  easy_survive: true
+
+wood_pickaxe_with_wood:
+  task_type: harvest
+  length: 10
+  target_item: wood_pickaxe
+  initial_inventory:
+    wood: 3
+
+wood_pickaxe_with_wood_peaceful:
+  task_type: harvest
+  length: 10
+  target_item: wood_pickaxe
+  initial_inventory:
+    wood: 3
+  peaceful: true
+
+wood_pickaxe_with_wood_novice:
+  task_type: harvest
+  length: 10
+  target_item: wood_pickaxe
+  initial_inventory:
+    wood: 3
+  peaceful: true
+  easy_survive: true
+
+stone_pickaxe:
+  task_type: harvest
+  length: 200
+  target_item: stone_pickaxe
+
+stone_pickaxe_peaceful:
+  task_type: harvest
+  length: 200
+  target_item: stone_pickaxe
+  peaceful: true
+
+stone_pickaxe_novice:
+  task_type: harvest
+  length: 200
+  target_item: stone_pickaxe
+  peaceful: true
+  easy_survive: true
+
+stone_pickaxe_with_wood_and_stone:
+  task_type: harvest
+  length: 10
+  target_item: stone_pickaxe
+  initial_inventory:
+    wood: 3
+    stone: 1
+
+stone_pickaxe_with_wood_and_stone_peaceful:
+  task_type: harvest
+  length: 10
+  target_item: stone_pickaxe
+  initial_inventory:
+    wood: 3
+    stone: 1
+  peaceful: true
+
+stone_pickaxe_with_wood_and_stone_novice:
+  task_type: harvest
+  length: 10
+  target_item: stone_pickaxe
+  initial_inventory:
+    wood: 3
+    stone: 1
+  peaceful: true
+  easy_survive: true
+
+iron_pickaxe:
+  task_type: harvest
+  length: 300
+  target_item: iron_pickaxe
+
+iron_pickaxe_peaceful:
+  task_type: harvest
+  length: 300
+  target_item: iron_pickaxe
+  peaceful: true
+
+iron_pickaxe_novice:
+  task_type: harvest
+  length: 300
+  target_item: iron_pickaxe
+  peaceful: true
+  easy_survive: true
+
+wood_sword:
+  task_type: harvest
+  length: 100
+  target_item: wood_sword
+
+wood_sword_peaceful:
+  task_type: harvest
+  length: 100
+  target_item: wood_sword
+  peaceful: true
+
+wood_sword_novice:
+  task_type: harvest
+  length: 100
+  target_item: wood_sword
+  peaceful: true
+  easy_survive: true
+
+wood_sword_with_wood:
+  task_type: harvest
+  length: 10
+  target_item: wood_sword
+  initial_inventory:
+    wood: 3
+
+wood_sword_with_wood_peaceful:
+  task_type: harvest
+  length: 10
+  target_item: wood_sword
+  initial_inventory:
+    wood: 3
+  peaceful: true
+
+wood_sword_with_wood_novice:
+  task_type: harvest
+  length: 10
+  target_item: wood_sword
+  initial_inventory:
+    wood: 3
+  peaceful: true
+  easy_survive: true
+
+stone_sword:
+  task_type: harvest
+  length: 200
+  target_item: stone_sword
+
+stone_sword_peaceful:
+  task_type: harvest
+  length: 200
+  target_item: stone_sword
+  peaceful: true
+
+stone_sword_novice:
+  task_type: harvest
+  length: 200
+  target_item: stone_sword
+  peaceful: true
+  easy_survive: true
+
+stone_sword_with_wood_and_stone:
+  task_type: harvest
+  length: 10
+  target_item: stone_sword
+  initial_inventory:
+    wood: 3
+    stone: 1
+
+stone_sword_with_wood_and_stone_peaceful:
+  task_type: harvest
+  length: 10
+  target_item: stone_sword
+  initial_inventory:
+    wood: 3
+    stone: 1
+  peaceful: true
+
+stone_sword_with_wood_and_stone_novice:
+  task_type: harvest
+  length: 10
+  target_item: stone_sword
+  initial_inventory:
+    wood: 3
+    stone: 1
+  peaceful: true
+  easy_survive: true
+
+iron_sword:
+  task_type: harvest
+  length: 300
+  target_item: iron_sword
+
+iron_sword_peaceful:
+  task_type: harvest
+  length: 300
+  target_item: iron_sword
+  peaceful: true
+
+iron_sword_novice:
+  task_type: harvest
+  length: 300
+  target_item: iron_sword
+  peaceful: true
+  easy_survive: true

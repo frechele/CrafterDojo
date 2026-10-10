@@ -1,94 +1,146 @@
+<div align="center">
+
 # CrafterDojo
 
-Author: Junyeong Park, Hyeonseo Cho, Sungjin Ahn
+**An Integrated Research Suite for Building Open-Ended Embodied Agents in Crafter**
 
-[[paper]](https://arxiv.org/abs/2508.13530) [[project]](https://sites.google.com/view/crafterdojo)
+Junyeong Park, Hyeonseo Cho, Sungjin Ahn
 
-## Abstract
+[![arXiv](https://img.shields.io/badge/arXiv-2508.13530-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2508.13530) [![Project Page](https://img.shields.io/badge/Project-Page-4c8bf5.svg?logo=googlechrome&logoColor=white)](https://sites.google.com/view/crafterdojo) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Weights-ffcc4d.svg)](https://huggingface.co/frechele/CrafterDojo)<br>
+[![Dataset: Survival](https://img.shields.io/badge/Dataverse-CrafterPlay--Survival-a51c30.svg)](https://doi.org/10.7910/DVN/FHR2KS) [![Dataset: Gatherer](https://img.shields.io/badge/Dataverse-CrafterPlay--Gatherer-a51c30.svg)](https://doi.org/10.7910/DVN/JXNHRB) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Developing general-purpose embodied agents is a core challenge in AI. Minecraft provides rich complexity and internet-scale data, but its slow speed and engineering overhead make it unsuitable for rapid prototyping. Crafter offers a lightweight alternative that retains key challenges from Minecraft, yet its use has remained limited to narrow tasks due to the absence of foundation models that have driven progress in the Minecraft setting. In this paper, we present CrafterDojo, a suite of foundation models and tools that unlock the Crafter environment as a lightweight, prototyping-friendly, and Minecraft-like testbed for general-purpose embodied agent research. CrafterDojo addresses this by introducing CrafterVPT, CrafterCLIP, and CrafterSteve-1 for behavior priors, vision-language grounding, and instruction following, respectively. In addition, we provide toolkits for generating behavior and caption datasets (CrafterPlay and CrafterCaption), reference agent implementations, benchmark evaluations, and a complete open-source codebase.
+</div>
 
+CrafterDojo is an integrated research suite that turns Crafter into a lightweight, Minecraft-like testbed for general-purpose embodied agents. It provides foundation models, dataset toolkits and reference agents:
 
-## Key Components
-
-### Foundation Models
-
-- **CrafterCLIP**: Vision-language model for understanding Crafter gameplay
-- **CrafterVPT**: Video pre-training models (tiny, base, large variants) with LoRA support  
-- **CrafterSteve-1**: Advanced agent model with hierarchical control
-
-### Data Generator Toolkits
-
-- **Expert Behavior Generator**: PPO-based expert policy training and demonstration generation
-- **Caption Generator**: Rule-based system for creating descriptive captions from gameplay
+- **CrafterVPT** — behavior prior trained by behavior cloning on expert play (tiny / base / large)
+- **CrafterCLIP** — video–language encoder for Crafter gameplay
+- **CrafterSteve-1** — instruction-following agent built on CrafterVPT and CrafterCLIP
+- **CrafterPlay / CrafterCaption** — toolkits for generating expert behavior data and rule-based captions
+- **DEP / H-DEP** — planner-based agents that use CrafterSteve-1 as a low-level controller
 
 ## Installation
 
-**Step 1. Clone the repository**
 ```bash
 git clone https://github.com/frechele/CrafterDojo
 cd CrafterDojo
+uv sync --extra env --extra crafterclip
 ```
 
-**Step 2. Download pre-trained models**
+Extras: `env` (Craftax environment), `crafterclip` (CrafterCLIP / CrafterSteve-1), `dataset_generation`
+(CrafterPlay / CrafterCaption), `preprocess` (Steve-1 preprocessing), `deps` (LLM planner), `wandb`.
+Install only the ones you need, e.g. `uv sync --extra env` for CrafterVPT.
+
+## Pretrained Models
+
+Weights are hosted on the Hugging Face Hub at [`frechele/CrafterDojo`](https://huggingface.co/frechele/CrafterDojo) in `safetensors` format.
+
 ```bash
-uv run bash scripts/download_weights.sh
+bash scripts/download_weights.sh          # everything below, into models/
+bash scripts/download_weights.sh vpt      # or: clip | steve1
 ```
+
+| Model | File | Architecture config | Size |
+|---|---|---|---:|
+| CrafterVPT-tiny | `models/vpt/tiny.safetensors` | `models/vpt/tiny.yaml` | 13 MB |
+| CrafterVPT-base | `models/vpt/base.safetensors` | `models/vpt/base.yaml` | 63 MB |
+| CrafterVPT-large | `models/vpt/large.safetensors` | `models/vpt/large.yaml` | 257 MB |
+| CrafterCLIP | `models/crafterclip/crafterclip.safetensors` | — | 634 MB |
+| CrafterSteve-1 | `models/steve1/steve1.safetensors` | `models/vpt/base_lora.yaml` | 65 MB |
+| CrafterSteve-1 prior | `models/steve1/steve1_prior.safetensors` | — | 9 MB |
+
+All models are trained on the `sv_gh_pp-10B_20ep` mixture of CrafterPlay data (Survival + Gatherer experts).
+
+## Datasets
+
+CrafterPlay episodes and CrafterCaption captions are hosted on Harvard Dataverse:
+
+| Dataset | DOI |
+|---|---|
+| CrafterPlay-Survival (`survival-10B`) | [10.7910/DVN/FHR2KS](https://doi.org/10.7910/DVN/FHR2KS) |
+| CrafterPlay-Gatherer (`gatherer-10B`) | [10.7910/DVN/JXNHRB](https://doi.org/10.7910/DVN/JXNHRB) |
+
+Each dataset is split into `.tar.zst` shards. Extract them under `data/episodes/`:
+
+```bash
+mkdir -p data/episodes
+tar --zstd -xf crafterdojo_playdata_raw_survival-10B_19967-19999_part-0231.tar.zst -C data/episodes
+```
+
+- [docs/dataset/DATASET.md](docs/dataset/DATASET.md) — statistics, file organization and data formats
+- [docs/dataset/GENERATION.md](docs/dataset/GENERATION.md) — generating custom data with your own rewards and caption rules
+- [notebooks/crafterdojo_tutorial.ipynb](notebooks/crafterdojo_tutorial.ipynb) — loading and visualizing episodes and captions
+- [docs/dataset/croissant/](docs/dataset/croissant/) — Croissant metadata (with Responsible AI fields) for each dataset
 
 ## Quick Start
 
-### Training Agents
+All training and evaluation goes through the Hydra entrypoint `main.py` (configs under `config/`).
 
-**Train VPT behavioral cloning**:
-```bash
-uv run bash scripts/train/vpt/run_bc.sh base  # train base model
-```
-
-**Train CrafterCLIP model**:
-```bash
-uv run bash scripts/train/run_cclip.sh
-```
-
-**Train CrafterSteve-1 model**:
-```bash
-uv run bash scripts/train/steve1/run_preprocess.sh
-uv run bash scripts/train/steve1/run_steve1.sh
-```
-
-**Train PPO-Steve agent**:
-```bash
-uv run bash scripts/train/run_ppo_steve.sh harvest_sapling 10  # train for harvest sapling task with low-level steps=10
-```
-
-
-### Evaluation
+**Evaluate CrafterVPT**
 
 ```bash
-uv run agent_main.py mode=eval env=crafterdojo env.task=harvest_sapling agent=ppo_steve eval.load=path/to/checkpoint
-uv run scripts/gather_crafterdojo.py path/to/output
+uv run python main.py mode=eval runner=vpt/bc env=craftax_pixels \
+    runner.model=models/vpt/base.yaml runner.weights=models/vpt/base.safetensors
 ```
 
-### Data Generation
+**Evaluate CrafterSteve-1 on an instruction**
 
-- **Generate expert demonstrations**: Refer [README.md](toolkit/expert/README.md)
-- **Generate captions**: Refer [README.md](toolkit/caption/README.md)
-
-## Project Structure
-
+```bash
+uv run python main.py mode=eval runner=steve1/bc env=craftax_dojo env.task=harvest_sapling \
+    "runner.eval.instruction=collect a sapling"
 ```
-CrafterDojo/
-├── agent_main.py          # Main agent training/evaluation script
-├── model_main.py          # Main model training script  
-├── crafterdojo/           # Core package
-│   ├── agent/             # Agent implementations
-│   ├── model/             # Model architectures
-│   ├── env/               # Environment wrappers
-│   ├── data/              # Data loading utilities
-│   └── common/            # Shared utilities
-├── config/                # Hydra configurations
-├── scripts/               # Training/utility scripts
-├── toolkit/               # Data generation tools
-│   ├── caption/           # Caption generation
-│   └── expert/            # Expert behavior generation
-└── models/                # Pre-trained model weights
+
+Tasks are defined in `src/crafterdojo/env/tasks/`. The Steve-1 eval config defaults to the released
+weights and the conditioning scale used in the paper (`runner.eval.cond_scale=0.4`).
+
+**Train**
+
+```bash
+bash scripts/training/train_vpt_bc.sh
+bash scripts/training/train_crafterclip.sh     # needs: bash scripts/download_weights.sh openai
+bash scripts/training/train_steve1_bc.sh
 ```
+
+See [scripts/README.md](scripts/README.md) for defaults and environment-variable overrides.
+
+**Generate data**
+
+```bash
+bash scripts/data/expert_train.sh survival 1000000
+bash scripts/data/expert_generate.sh outputs/expert_train/policy.ckpt data/episodes 16 0
+bash scripts/data/expert_process.sh data/episodes/Craftax-Classic-Symbolic-v1 16 0
+bash scripts/data/expert_filter.sh data/episodes/Craftax-Classic-Symbolic-v1 16 0 20
+```
+
+The same steps are available as console scripts (`uv run expert-train --help`, `caption-generate`, …).
+See [dataset_generation/README.md](dataset_generation/README.md) and [docs/dataset/GENERATION.md](docs/dataset/GENERATION.md).
+
+## Repository Layout
+
+```text
+config/              Hydra configs for runners, environments and training
+data/                Small caption / prompt resources used by evaluators and planners
+dataset_generation/  CrafterPlay (expert behavior) and CrafterCaption toolkits
+docs/dataset/        Dataset documentation
+models/              Architecture configs; downloaded weights land here
+notebooks/           Dataset tutorial
+scripts/             Training, data-generation and weight-download scripts
+src/crafterdojo/     Models, datasets, agents, environment wrappers, runners, evaluators
+main.py              Hydra entrypoint
+```
+
+## Citation
+
+```bibtex
+@article{park2026crafterdojo,
+  title   = {CrafterDojo: An Integrated Research Suite for Building Open-Ended Embodied Agents in Crafter},
+  author  = {Park, Junyeong and Cho, Hyeonseo and Ahn, Sungjin},
+  journal = {arXiv preprint arXiv:2508.13530},
+  year    = {2026}
+}
+```
+
+## License
+
+Code is released under the [MIT License](LICENSE), which also lists third-party notices
+(Craftax, OpenAI VPT, MineCLIP, OpenAI CLIP, JAX) and the STEVE-1 attribution. The released weights are distributed under the same license.

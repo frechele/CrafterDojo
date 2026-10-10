@@ -1,0 +1,5 @@
+enable: false
+project: auto
+group: ""
+name: ""
+mode: online  # choices: online, offline, disabled

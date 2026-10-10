@@ -1,0 +1,21 @@
+defaults:
+  - _self_
+  - runner: ???
+  - optional env: null
+  - fabric: default
+  - wandb: default
+
+mode: train  # choices: train, eval
+seed: 42
+
+eval:
+  n_episodes: 100
+  n_workers: 5
+  debug: false
+  jax_platform: cpu
+
+hydra:
+  run:
+    dir: ./outputs/${runner.name}/${now:%Y-%m-%d_%H-%M-%S}_${oc.env:SLURM_JOB_ID,local}
+  job:
+    chdir: false

@@ -1,0 +1,51 @@
+defaults:
+  - _base
+  - _self_
+
+name: crafterclip
+train_entry: crafterdojo.runner.crafterclip.train.main
+
+model: null
+weights: null
+
+mineclip:
+  arch: vit_base_p16_fz.v2.t2
+  hidden_dim: 512
+  image_feature_dim: 512
+  mlp_adapter_spec: v0-2.t0
+  pool_type: attn.d2.nh8.glusw
+  resolution: [144, 144]
+
+oai_clip_weights: models/clip/ViT-B-16.pt
+resolution: [144, 144]
+
+rephrase_dict: null
+num_rephrased: 0
+
+train_dataset:
+  dataset_root: null
+  caption_path: caption_balanced_rule
+  data_split: "[0:18000]"
+  episode_cutoff: null
+
+val_dataset:
+  dataset_root: null
+  caption_path: caption_balanced_rule
+  data_split: "[18000:19000]"
+  episode_cutoff: null
+
+num_workers: 8
+val_every_nth: 10
+batch_size: 128
+learning_rate: 1.5e-4
+min_learning_rate: 1e-5
+weight_decay: 0.2
+n_epochs: 2
+warmup_steps: 100
+layerwise_lr_decay: 0.65
+pretrained_layers_lr_multiplier: 0.5
+
+log_freq: 100
+val_freq: 3500
+save_freq: 1000
+snapshot_every_n_frames: 10_000_000

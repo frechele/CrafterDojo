@@ -1,0 +1,56 @@
+defaults:
+  - _base
+  - _self_
+
+name: vpt_bc
+train_entry: crafterdojo.runner.vpt.bc.main
+eval_entry: crafterdojo.runner.vpt.eval.main
+
+model: models/vpt/tiny.yaml
+weights: null
+
+model_overrides:
+  attention_memory_size: null
+  attention_heads: null
+  hidsize: null
+  n_recurrence_layers: null
+  timesteps: null
+
+pi_head_temperature: null
+
+train_dataset:
+  dataset_root: "data/episodes/Craftax-Classic-Symbolic-v1_filtered_20"
+  data_split: "[0:18000]"
+  episode_cutoff: null
+
+val_dataset:
+  dataset_root: "data/episodes/Craftax-Classic-Symbolic-v1_filtered_20"
+  data_split: "[18000:19000]"
+  episode_cutoff: null
+
+num_workers: 4
+prefetch_factor: 1
+persistent_workers: false
+val_every_nth: 1
+
+T: 256
+batch_size: 64
+trunc_t: 64
+learning_rate: 5e-4
+min_learning_rate: 1e-6
+n_samples: 1_000
+n_epochs: 10
+warmup_samples: 10_000_000
+weight_decay: 1e-4
+max_grad_norm: 5.0
+max_nonfinite_updates: 0
+nonfinite_debug: false
+nonfinite_debug_max_logs: 0
+
+log_freq: 100
+val_freq: 3500000
+save_freq: 1000000
+snapshot_every_n_samples: 10_000_000_000
+log_first_step: true
+validate_first_step: true
+save_first_step: true
