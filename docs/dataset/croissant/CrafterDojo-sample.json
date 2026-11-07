@@ -617,12 +617,10 @@
   "rai:hasSyntheticData": true,
   "prov:wasDerivedFrom": [
     {
-      "@id": "https://doi.org/10.7910/DVN/JXNHRB",
-      "@type": "sc:Dataset"
+      "@id": "https://doi.org/10.7910/DVN/JXNHRB"
     },
     {
-      "@id": "https://doi.org/10.7910/DVN/FHR2KS",
-      "@type": "sc:Dataset"
+      "@id": "https://doi.org/10.7910/DVN/FHR2KS"
     }
   ],
   "prov:wasGeneratedBy": [
@@ -644,11 +642,9 @@
   ],
   "isBasedOn": [
     {
-      "@type": "Dataset",
       "@id": "https://doi.org/10.7910/DVN/JXNHRB"
     },
     {
-      "@type": "Dataset",
       "@id": "https://doi.org/10.7910/DVN/FHR2KS"
     }
   ]
