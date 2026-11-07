@@ -1,0 +1,655 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "dct": "http://purl.org/dc/terms/",
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "sc": "https://schema.org/",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "wd": "https://www.wikidata.org/wiki/",
+    "samplingRate": "cr:samplingRate",
+    "equivalentProperty": "cr:equivalentProperty",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "CrafterDojo-sample",
+  "url": "https://doi.org/10.7910/DVN/KS1IAJ",
+  "identifier": "doi:10.7910/DVN/KS1IAJ",
+  "creator": [
+    {
+      "@type": "Person",
+      "givenName": "Junyeong",
+      "familyName": "Park",
+      "name": "Park, Junyeong",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Korea Advanced Institute of Science and Technology",
+        "@id": "https://ror.org/05apxxy63"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Hyeonseo",
+      "familyName": "Cho",
+      "name": "Cho, Hyeonseo",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Korea Advanced Institute of Science and Technology",
+        "@id": "https://ror.org/05apxxy63"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Sungjin",
+      "familyName": "Ahn",
+      "name": "Ahn, Sungjin",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Korea Advanced Institute of Science and Technology",
+        "@id": "https://ror.org/05apxxy63"
+      }
+    }
+  ],
+  "description": "CrafterDojo-sample: 10 expert gameplay episodes (71.9K frames) in Craftax-Classic, with 5 episodes each from CrafterPlay-Survival and CrafterPlay-Gatherer. Each episode includes rendered video, actions, environment states, episode length, and rule-based CrafterCaption annotations. Part of CrafterDojo, an integrated research suite for building open-ended embodied agents in Crafter. The sample selects episodes 00000–00004 from each of CrafterPlay-Gatherer and CrafterPlay-Survival. This inspection sample is not a representative evaluation or training split. Actions and rule-based captions are stored as Python pickle files, states as NumPy NPZ files, episode lengths as text, and rendered videos as MP4 files. Use NumPy to read state arrays, a compatible Python environment for trusted pickle files, and a video decoder for MP4. RecordSets are omitted under the NeurIPS 2026 E&D unsupported-format exception: mlcroissant 1.1.1 does not directly decode these pickle/NPZ gameplay payloads. Resource metadata does not imply automatic trajectory loading. Generator and downstream processing code: https://github.com/frechele/CrafterDojo.",
+  "keywords": [
+    "Computer and Information Science"
+  ],
+  "license": "http://creativecommons.org/publicdomain/zero/1.0",
+  "dateModified": "2026-11-07T01:29:23Z",
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Harvard Dataverse",
+    "url": "https://dataverse.harvard.edu"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Harvard Dataverse"
+  },
+  "version": "1.1",
+  "datePublished": "2026-11-06",
+  "citeAs": "@data{DVN/KS1IAJ,author = {Park, Junyeong and Cho, Hyeonseo and Ahn, Sungjin},publisher = {Harvard Dataverse},title = {CrafterDojo-sample},year = {2026},version = {V1.1},doi = {10.7910/DVN/KS1IAJ},url = {https://doi.org/10.7910/DVN/KS1IAJ}}",
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00000.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00000.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "60257",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862654",
+      "sha256": "147202ccc270cd95a134cea32a8c7806e466b723552016a15880d703ce7c9a36"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00000.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00000.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "60257",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862623",
+      "sha256": "ed88dd2d02b98c90257c4045597d9426cea69cb33d89849e43a8c83c56aadc91"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00001.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00001.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "16595",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862624",
+      "sha256": "09f189f7d046a3763cc0f951db525646aab4e439d3c86e369ebcc3f865367665"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00001.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00001.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "60257",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862655",
+      "sha256": "0dace7feac0616e197133e779c882c2d47bacaebad0b957c04a3e32a5be2d947"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00002.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00002.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "41423",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862656",
+      "sha256": "39ef80d5615c130ee88f95fef314a2491190c5c2016693134555f2d9670a6a94"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00002.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00002.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "5393",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862625",
+      "sha256": "2942230b2556177796dd7538e7935978843a2d9ce026eeca8ed77bd1719f6e57"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00003.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00003.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "60257",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862657",
+      "sha256": "73495167ee1bf59631ba3c7faa152a178ccfc9a35d580e0c22d7a3ebd84462b4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00003.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00003.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "60257",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862626",
+      "sha256": "06e3bd12676a6e5aca569bacf84f75fbbb69256467b4e3534931e2e3bbcf6cf8"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00004.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/action/action_00004.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "60257",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862658",
+      "sha256": "127d888c7dce77dcd7cc1b38b10979b68129b42b3b5b8b9512314c62f1b3b0ba"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00004.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/action/action_00004.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "8969",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862627",
+      "sha256": "ae88c166d49d6ebf11d596bb2579acd505d8a878a6bf7357acfc3f1f98cc3b48"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00000.npz",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00000.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "6309980",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862639",
+      "sha256": "5e63949bbdcd133f0ec01c081bd22e8861d8594cde1b593378cb9166113794d3"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00000.npz",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00000.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "8363914",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862669",
+      "sha256": "835a3f5b8faff99d42381740873aaf5204e684505bade7485d16e80e19822961"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00000.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00000.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "129784",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862628",
+      "sha256": "9d5a0d867e4d016f2a21f38dc35cfc4ba655fa6cc3e269d43cfd8093995a9116"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00000.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00000.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "91909",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862659",
+      "sha256": "27eab324f4c1d879d4197db05eed0df19eab71f0fff3f361743ad68e95297acf"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00001.npz",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00001.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "6553589",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862670",
+      "sha256": "9d041cfe630c1755287e4bb57c155dd0838f3a4226ab2d2dfe6618009e97d6b5"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00001.npz",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00001.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "1479541",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862640",
+      "sha256": "f1d97d7a7bae105931a05208559100e3d5123958e59dc87891e37a9f557b57d4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00001.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00001.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "76346",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862660",
+      "sha256": "22df6cda34bb26c00e6f6bb2e3e92b05f1968a0537d25a18b871c97819cc84e2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00001.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00001.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "31654",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862629",
+      "sha256": "62fc8115af82fed515e826bb6b4d47a8d1ac00702b1e135a2212be3ffbd722ae"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00002.npz",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00002.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "529658",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862641",
+      "sha256": "a086a8b1a14a25546af67b97e2f6e838478858df436b15cc9627678f7278bb7a"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00002.npz",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00002.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "4514461",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862672",
+      "sha256": "a6ca6fbc5befdd34a13687c22c329bc2642e6cb2e09ef5b08f50a43a1cba5d4e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00002.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00002.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "64125",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862661",
+      "sha256": "1eebb9cde9150da4f9f884d4ad08d5ce78158b6830eede269fcdae5bf7ff5e52"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00002.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00002.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "11621",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862630",
+      "sha256": "9e370a0ea4027d5ed5416ad779d1fe3f6b5f2e7f602aaee239a90ab6c64036d2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00003.npz",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00003.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "5987274",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862642",
+      "sha256": "9d1a27425f96afdb27b91c0275836c3fcfe54167f7c8f0606491691c6439fea9"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00003.npz",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00003.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "6079681",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862674",
+      "sha256": "1545f8b8a06426c361b9660f7013998981e0d5749dd7a4139d2afd8e6d93e9dc"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00003.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00003.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "113408",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862631",
+      "sha256": "6f196ea96294d534d80fd9ef5765a7c6fca0e805f0ee116a0f8ccb220c81d213"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00003.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00003.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "83934",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862662",
+      "sha256": "01dd39278816c8e2741f6e7aafe12ee9d1d5f2ca735e9aa29932e6abcbac79dd"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00004.npz",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/state/episode_00004.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "927404",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862646",
+      "sha256": "bf800148c2fa6123c1e7cd74ac4a88193a82177b7c281c27923ad54d2f3316d2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00004.npz",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/state/episode_00004.npz",
+      "encodingFormat": "application/zip",
+      "contentSize": "6919821",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862675",
+      "sha256": "b72f33f23a9ca79d360e7700094493c074c81c7035a37bb19770ae4001e4f9ea"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00004.pkl",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/caption/episode_00004.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "89248",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862663",
+      "sha256": "3be4d73b37306944241fe93c075a2b8debdb2595c58c6424fd73d7290f84c376"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00004.pkl",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/caption/episode_00004.pkl",
+      "encodingFormat": "application/octet-stream",
+      "contentSize": "18231",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862632",
+      "sha256": "da53f86d181ee02babae3f3276137073135b95c66f5dc7f6a920228e0e43af36"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00000.txt",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00000.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "6",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862664",
+      "sha256": "876e13f4e07bb39705302c01f445ffd2d2c3b180a207e4d959d6b671c67da09b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00000.txt",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00000.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "6",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862633",
+      "sha256": "876e13f4e07bb39705302c01f445ffd2d2c3b180a207e4d959d6b671c67da09b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00001.txt",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00001.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "6",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862665",
+      "sha256": "876e13f4e07bb39705302c01f445ffd2d2c3b180a207e4d959d6b671c67da09b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00001.txt",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00001.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "5",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862634",
+      "sha256": "51d5fb15022d6031461666cef51b4d095345405b9c388ff83244d0ab8a17731e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00002.txt",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00002.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "4",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862635",
+      "sha256": "a8a53b187eafce20581c78ddb75b73dd5ae80b7501ddb0c83f23a589ee2a0a85"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00002.txt",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00002.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "5",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862666",
+      "sha256": "0a06b8ac4d9152342cd60ed1d1fd6e894111161ee2dc1b40cee9bea97d5252a4"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00003.txt",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00003.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "6",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862667",
+      "sha256": "876e13f4e07bb39705302c01f445ffd2d2c3b180a207e4d959d6b671c67da09b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00003.txt",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00003.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "6",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862636",
+      "sha256": "876e13f4e07bb39705302c01f445ffd2d2c3b180a207e4d959d6b671c67da09b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00004.txt",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/len/len_00004.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "5",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862637",
+      "sha256": "3bbfb3f9c05fbec6281c939d724e27330f089c8b1091516c8a04b583c2f75e8d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00004.txt",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/len/len_00004.txt",
+      "encodingFormat": "text/plain",
+      "contentSize": "6",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862668",
+      "sha256": "876e13f4e07bb39705302c01f445ffd2d2c3b180a207e4d959d6b671c67da09b"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00000.mp4",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00000.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "19106079",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862647",
+      "sha256": "31d3dc7691a394cd9832f40ca73b763162d4dedbe3a8a8e20a2b84a7daad7684"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00000.mp4",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00000.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "18727943",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862676",
+      "sha256": "3f00b517ae6b673d101f4df7c106647258481f0ced2b342bff6068fe6c83f62a"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00001.mp4",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00001.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "5634827",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862648",
+      "sha256": "a8bad0bfb5fcd74ad809b53b3aba95f99d937e7cd1849808cda9670c0104f5cb"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00001.mp4",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00001.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "19066683",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862677",
+      "sha256": "29b3106711001180ed92ffedca7d531ba8e0191a39cd0d1489bebb35e8947c47"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00002.mp4",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00002.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "1838610",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862649",
+      "sha256": "60426fd580c5ad27379a44f4336cf1c3a0a69db8f1463ff34274750286887d04"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00002.mp4",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00002.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "12961778",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862678",
+      "sha256": "47b43a8d5a44bd3fd1134ff71b1a546dbc4632a827a5878b94e0425bf3c9ad3d"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00003.mp4",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00003.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "19687347",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862650",
+      "sha256": "ce4087c0608c24cb222902e4115f8887c4fea04d3eacb07cfed62c5c7ccbaccb"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00003.mp4",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00003.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "19129908",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862679",
+      "sha256": "ae9ee300432f978b36877255c9403608acbb6a601bd00e098e6e9ade40efa59e"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00004.mp4",
+      "name": "raw/survival-10B/Craftax-Classic-Symbolic-v1/video/video_00004.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "19243575",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862681",
+      "sha256": "0628f6d1b32781e419cc2a59b2343925e5130293d88825d5a838c4d224562af2"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00004.mp4",
+      "name": "raw/gatherer-10B/Craftax-Classic-Symbolic-v1/video/video_00004.mp4",
+      "encodingFormat": "video/mp4",
+      "contentSize": "3002146",
+      "description": "Unsharded raw CrafterDojo sample episode file.",
+      "contentUrl": "https://dataverse.harvard.edu/api/access/datafile/13862651",
+      "sha256": "0f31f46864673bee6f46198529936c9195393431ff4ad1112b8100dce9a6fb19"
+    }
+  ],
+  "rai:dataLimitations": "Limited to synthetic Craftax-Classic gameplay under the collecting PPO-RNN policies, reward functions, and caption rules. Coverage of rare states and alternative strategies is not guaranteed. Not recommended as evidence of human behavior, real-world robotics performance, safety, fairness, or transfer to other games. Rule-based captions describe a restricted vocabulary of detected events rather than exhaustive scene semantics. The hosted raw episodes are not themselves the balanced, subsampled video-caption training set described in the paper. Only ten inspection episodes, selected by episode identifier; do not use this sample to estimate full-dataset performance or coverage.",
+  "rai:dataBiases": "The sample contains five episodes from each reward policy, selected by identifier rather than random sampling. PPO-RNN policy selection and the simulated environment constrain behavior coverage. Caption rules and templates favor detectable events and a limited language vocabulary; event frequencies need not be balanced in raw episodes. No human demographic population is represented.",
+  "rai:personalSensitiveInformation": "None. The dataset contains simulated gameplay trajectories and does not include personal or sensitive information.",
+  "rai:dataUseCases": "For inspecting file formats, modalities and example gameplay only; this ten-episode sample has not been validated as an evaluation benchmark. Represents simulated expert behavior and action/state-grounded event descriptions in Craftax-Classic. Intended uses include behavioral pretraining, video-language representation learning, and instruction-conditioned agent research. The CrafterDojo paper reports downstream Crafter Score/Return, video-text retrieval, instruction-following, and long-horizon task evaluations using derived training datasets; these results do not establish validity for every raw episode or arbitrary split of this release. Offline RL and off-policy evaluation are possible research uses, not validated guarantees of this dataset. No validity is established for human populations, real-world deployment, safety certification, or fairness auditing. See the paper sections on CrafterVPT, CrafterCLIP, CrafterSteve-1, and their evaluations, and the accompanying code at https://github.com/frechele/CrafterDojo.",
+  "rai:dataSocialImpact": "Enables controlled, lower-cost research on simulated embodied agents and reproducible inspection of generated behavior and captions. Potential negative effects include overstating generalization from a narrow simulator or using downstream models in real-world or safety-critical systems without validation. Mitigations are to report the simulator, policy and reward coverage, distinguish raw data from experiment-specific subsets, and perform independent domain and safety evaluations before any deployment outside simulation. No demographic fairness claims are supported by this synthetic gameplay data.",
+  "rai:hasSyntheticData": true,
+  "prov:wasDerivedFrom": [
+    {
+      "@id": "https://doi.org/10.7910/DVN/JXNHRB",
+      "@type": "sc:Dataset"
+    },
+    {
+      "@id": "https://doi.org/10.7910/DVN/FHR2KS",
+      "@type": "sc:Dataset"
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "rdfs:label": "Synthetic trajectory generation",
+      "sc:description": "Synthetic rollouts from PPO-RNN experts trained for 10 billion timesteps in Craftax-Classic-Symbolic-v1, using the Survival and Gatherer reward configurations. Actions and environment states are recorded and rendered to video; episode lengths are stored separately. https://github.com/frechele/CrafterDojo provides the Expert Behavior Generator. The public Dataverse metadata does not identify exact rollout seeds, checkpoint hashes, environment commits, or collection dates; these are not inferred from deposit/publication timestamps. The environment repository is a software dependency, not a source dataset of human observations."
+    },
+    {
+      "@type": "prov:Activity",
+      "rdfs:label": "Rule-based annotation",
+      "sc:description": "The Caption Generator derives event annotations from actions and environment-state changes using rules and templates. These raw episode captions should not be confused with the later balanced clip sampling and LLM paraphrase augmentation used in downstream CrafterCaption training. No human annotators or inter-annotator agreement are applicable to these rule-generated labels. See the paper sections CrafterPlay Dataset Specification and CrafterCaption Dataset Specification and the code at https://github.com/frechele/CrafterDojo."
+    },
+    {
+      "@type": "prov:Activity",
+      "rdfs:label": "Inspection sample selection",
+      "sc:description": "The sample selects episodes 00000–00004 from each of CrafterPlay-Gatherer and CrafterPlay-Survival."
+    }
+  ],
+  "isBasedOn": [
+    {
+      "@type": "Dataset",
+      "@id": "https://doi.org/10.7910/DVN/JXNHRB"
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://doi.org/10.7910/DVN/FHR2KS"
+    }
+  ]
+}

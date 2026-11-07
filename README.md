@@ -7,7 +7,7 @@
 Junyeong Park, Hyeonseo Cho, Sungjin Ahn
 
 [![arXiv](https://img.shields.io/badge/arXiv-2508.13530-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2508.13530) [![Project Page](https://img.shields.io/badge/Project-Page-4c8bf5.svg?logo=googlechrome&logoColor=white)](https://sites.google.com/view/crafterdojo) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Weights-ffcc4d.svg)](https://huggingface.co/frechele/CrafterDojo)<br>
-[![Dataset: Survival](https://img.shields.io/badge/Dataverse-CrafterPlay--Survival-a51c30.svg)](https://doi.org/10.7910/DVN/FHR2KS) [![Dataset: Gatherer](https://img.shields.io/badge/Dataverse-CrafterPlay--Gatherer-a51c30.svg)](https://doi.org/10.7910/DVN/JXNHRB) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Dataset: Survival](https://img.shields.io/badge/Dataverse-CrafterPlay--Survival-a51c30.svg)](https://doi.org/10.7910/DVN/FHR2KS) [![Dataset: Gatherer](https://img.shields.io/badge/Dataverse-CrafterPlay--Gatherer-a51c30.svg)](https://doi.org/10.7910/DVN/JXNHRB) [![Dataset: Sample](https://img.shields.io/badge/Dataverse-10--episode_sample-a51c30.svg)](https://doi.org/10.7910/DVN/KS1IAJ) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 </div>
 
@@ -55,12 +55,25 @@ All models are trained on the `sv_gh_pp-10B_20ep` mixture of CrafterPlay data (S
 
 CrafterPlay episodes and CrafterCaption captions are hosted on Harvard Dataverse:
 
-| Dataset | DOI |
-|---|---|
-| CrafterPlay-Survival (`survival-10B`) | [10.7910/DVN/FHR2KS](https://doi.org/10.7910/DVN/FHR2KS) |
-| CrafterPlay-Gatherer (`gatherer-10B`) | [10.7910/DVN/JXNHRB](https://doi.org/10.7910/DVN/JXNHRB) |
+| Dataset | DOI / download | Croissant metadata |
+|---|---|---|
+| CrafterPlay-Survival (`survival-10B`) | [10.7910/DVN/FHR2KS](https://doi.org/10.7910/DVN/FHR2KS) | [JSON](docs/dataset/croissant/CrafterPlay-Survival.json) |
+| CrafterPlay-Gatherer (`gatherer-10B`) | [10.7910/DVN/JXNHRB](https://doi.org/10.7910/DVN/JXNHRB) | [JSON](docs/dataset/croissant/CrafterPlay-Gatherer.json) |
+| CrafterDojo-sample (10 episodes, ~187 MB) | [10.7910/DVN/KS1IAJ](https://doi.org/10.7910/DVN/KS1IAJ) | [JSON](docs/dataset/croissant/CrafterDojo-sample.json) |
 
-Each dataset is split into `.tar.zst` shards. Extract them under `data/episodes/`:
+**Start with the sample** to inspect the data before downloading the full datasets. It contains
+50 individual files: actions, states, captions, episode lengths, and videos for episodes
+`00000`–`00004` from each of Survival and Gatherer (five episodes per policy). Download the
+files from the sample's Dataverse page, preserving the directory paths. These are unsharded
+files, so no `.tar.zst` extraction is needed. See the [data format guide](docs/dataset/DATASET.md#4-data-formats)
+for reading each file type. The sample is for inspection, not a representative evaluation split.
+
+All three datasets are released under **CC0 1.0**. The Croissant JSON files describe their
+resources, licenses, provenance, and Responsible AI metadata. Automatic trajectory loading
+through `mlcroissant` is not supported for the pickle/NPZ payloads and Zstandard shards;
+use the data format guide to read them.
+
+The two full datasets are split into `.tar.zst` shards. Extract them under `data/episodes/`:
 
 ```bash
 mkdir -p data/episodes

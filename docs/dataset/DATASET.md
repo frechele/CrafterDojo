@@ -102,8 +102,13 @@ Each split is a directory tree with one subdirectory per field:
 Episode ids are zero-padded to five digits (`00000`–`19999`); one episode is fully described by
 its five same-id files, one per field directory.
 
-The *sample* stores the identical layout for the first five episodes of each split — ideal for
-trying the loaders before committing to a large download.
+The [CrafterDojo-sample dataset](https://doi.org/10.7910/DVN/KS1IAJ) contains episodes
+`00000`–`00004` from each split: 10 episodes, 50 individual files, approximately 187 MB.
+It uses the same field layout under `raw/{gatherer-10B|survival-10B}/Craftax-Classic-Symbolic-v1/`
+and is intended for inspecting formats before a large download, not as a representative
+evaluation split. Download the files with their directory paths preserved; the sample does
+not use `.tar.zst` shards. Its [Croissant metadata](croissant/CrafterDojo-sample.json) describes
+all 50 files and their source datasets.
 
 ---
 
